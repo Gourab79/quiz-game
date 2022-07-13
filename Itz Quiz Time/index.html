@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itz Quiz Time - Science</title>
+    <meta name="description" content="Play Interactive Quizes here.
+    Increase Your Knowledge in Different Subjects, Best Of Luck For Your Game.">
+    
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nerko One', cursive;
+    background-color: rgb(228, 228, 228);
+}
+.top .top_header h1{
+    text-align: center;
+    color: rgb(255, 0, 200);
+    background-color: rgb(255, 166, 166);
+    border: 4px dashed;
+    box-sizing: border-box;
+    padding: 30px;
+    font-size: 60px;
+    width: 100%;
+    
+
+}
+.header{
+display: flex;
+margin-left: 9%;
+
+
+}
+.header h2{
+    
+    text-align: center;
+    color: rgb(255, 0, 0);
+    background-image:linear-gradient(18deg,rgb(255, 255, 255),rgb(255, 255, 51));
+    border: 2px solid;
+    border-radius: 30px;
+    padding: 30px;
+    font-size: 30px;
+    width: 45%;
+    box-sizing: border-box;
+    animation: around 2s forwards 1s;
+
+}
+@keyframes around{
+    0%{
+        position: relative;
+        top: 0px;
+        transform: rotate(0deg);
+    }
+    50%{
+        position: relative;
+        top: 100px;
+        transform: rotate(360deg);
+    }
+    100%{
+        position: relative;
+        top: 0px;
+        transform: rotate(720deg);
+    }
+
+    
+
+
+}
+.top_img{
+    margin-top: 100px;
+    
+}
+.Q_A{
+    width: 90%;
+    border: skyblue 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.box{
+    
+    width: 80%;
+    border:springgreen 3px solid;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: hotpink;
+    
+
+}
+button{
+    cursor: pointer;
+    padding: 10px 30px;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    font-size: large;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    border: 2px dashed;
+    
+
+}
+button:hover{
+    background-color: rgb(255, 213, 213);
+}
+button:active{
+    
+    transform: scale(0.9);
+}
+
+.box h2{
+    margin: 20px;
+
+
+}
+.answer{
+    background-color: rgb(93, 241, 93);
+    border: hotpink 3px dotted;
+    border-radius: 5px;
+    font-size: large;
+    margin: 10px;
+    padding: 10px 30px;
+    font-weight: 700;
+    display: none;
+}
+.marks{
+    
+    border: hotpink 3px dotted;
+    border-radius: 5px;
+    font-size: large;
+    width:80%;
+    font-weight: 750;
+    text-align: center;
+    
+    
+
+}
+.marks h2{
+    margin: 10%;
+}
+#hidden{
+    margin-left: 10px;
+    
+    border: 2px dashed rgb(255, 0, 234);
+}
+#submit button{
+    border: 3px ;
+    border-style:dotted;
+    background-color: transparent;
+
+    
+}
+#submit button:focus{
+    background-color: rgb(0, 255, 13);
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="top_header">
+            <h1>Itz Quiz Time</h1>
+        </div>
+        <div class="header">
+            <h2>Play Quiz And Enjoy</h2>
+            <h2>Let See Your Knowledge</h2>
+        </div>
+        <div class="top_img">
+            <img src="science.png" alt="" height="360" width="100%">
+        </div>
+
+
+
+    </div>
+
+    <div class="Q_A">
+        <div id="box_1" class="box">
+            <div class="ques_1"><h2>Q.1)What is the largest animal on Earth?</h2></div>
+            <div class="ans_1">
+                <div class="option1">  <button id="btn1"onclick="wrong1()" > 1)Elephant</button></div>
+
+                <div class="option2" ><button id="btn2"onclick="correct2()" >2)Blue Whale</button></div>
+
+                <div class="option3"  > <button id="btn3"onclick="wrong3()">3)Tiger</button></div>
+
+                <div class="option4" > <button id="btn4"onclick="wrong4()">4)Rhinosauras</button></div>
+
+                <div class="answer" id="answer1">Answer : 2)Blue Whale</div>
+            </div>
+
+
+        </div>
+        <div id="box_2" class="box">
+            <div class="ques_2"><h2>Q.2)How many Alphabets are there in Engish?</h2></div>
+            <div class="ans_2">
+                <div class="option1"><button id="btn5"  onclick="wrong5()">1)42</button></div>
+                <div class="option2"><button id="btn6" onclick="wrong6()">2)21</button></div>
+                <div class="option3"><button id="btn7" onclick="correct7(),marks()">3)24</button></div>
+                <div class="option4"><button id="btn8" onclick="wrong8()">4)100</button></div>
+            </div>
+            <div class="answer"id="answer2" >Answer :3)24</div>
+        </div>
+
+        <div id="box_3"class="box">
+            <div class="ques_3"><h2>Q.3)How many Planets are there in the Solar System?</h2></div>
+            <div class="ans_3">
+                <div class="option1"><button id="btn9" onclick="wrong9()">1)7</button></div>
+                <div class="option2"><button id="btn10" onclick="correct10(),marks()">2)8</button></div>
+                <div class="option3"><button id="btn11" onclick="wrong11()">3)10</button></div>
+                <div class="option4"><button id="btn12" onclick="wrong12()">4)3</button></div>
+            </div>
+            <div class="answer" id="answer3">Answer : 2)8</div>
+
+        </div>
+        <div id="box_4"class="box">
+            <div class="ques_4"><h2>Q.4)Where is India Situated?</h2></div>
+            <div class="ans_4">
+                <div class="option1"><button id="btn13"  onclick="wrong13()"> 1)Africa</button></div>
+                <div class="option2"><button id="btn14" onclick="wrong14()">2)South America</button></div>
+                <div class="option3"><button id="btn15" onclick="correct15(),marks()">3)Asia</button></div>
+                <div class="option4"><button id="btn16" onclick="wrong16()">4)Europe</button></div>
+            </div>
+            <div class="answer" id="answer4">Answer : 3)Asia</div>
+        </div>
+        <div id="box_5"class="box">
+            <div class="ques_5"><h2>Q.5)Which is the longest river?</h2></div>
+            <div class="ans_5">
+                <div class="option1"><button id="btn17" onclick="wrong17()">1)Amazon River</button></div> 
+
+                <div class="option2"><button id="btn18" onclick="correct18(),marks()">2)Nile River</button></div> 
+                <div class="option3"><button id="btn19" onclick="wrong19()">3)Ganges</button></div> 
+                <div class="option4"><button id="btn20" onclick="wrong20()">4)Brahmaputra</button></div>
+            </div>
+            <div class="answer" id="answer5">Answer : 2)Nile River</div>
+        </div>
+        <div id="box_6"class="box">
+            <div class="ques_6"><h2>Q.6)Which is the highest mountain?</h2></div>
+            <div class="ans_6">
+                <div class="option1"><button id="btn21" onclick="wrong21()">1)Kilimanjaro</button></div>
+                <div class="option2"><button id="btn22" onclick="correct22(),marks()">2)Mount Everest</button></div>
+                <div class="option3"><button id="btn23" onclick="wrong23()">3)K2</button></div>
+                <div class="option4"><button id="btn24" onclick="wrong24()">4)Denali</button></div>
+            </div>
+            <div class="answer"id="answer6" >Answer : 2)Mount Everest</div>
+        </div>
+        <div id="box_7" class="box">
+            <div class="ques_7"><h2>Q.7)Who is the first person to walk on Moon?</h2></div>
+            <div class="ans_7">
+                <div class="option1"><button id="btn25" onclick="correct25(),marks()" >1)Neil Armstrong</button></div>
+                <div class="option2"><button id="btn26" onclick="wrong26()">2)Buzz Aldrein</button></div>
+                <div class="option3"><button id="btn27" onclick="wrong27()">3)Picasso</button></div>
+                <div class="option4"><button id="btn28" onclick="wrong28()">4)Gallelio</button></div>
+            </div>
+            <div class="answer" id="answer7">Answer : 1)Neil Armstrong</div>
+        </div>
+        <div id="box_8" class="box">
+            <div class="ques_8"><h2>Q.8)Which is the largest ocean?</h2></div>
+            <div class="ans_8">
+                <div class="option1"><button id="btn29" onclick="wrong29()"> 1)Atlantic Ocean</button></div>
+                <div class="option2"><button id="btn30" onclick="correct30(),marks()">2)Pacific Ocean</button></div>
+                <div class="option3"><button id="btn31" onclick="wrong31()">3)Artic Ocean</button></div>
+                <div class="option4"><button id="btn32" onclick="wrong32()">4)Indian Ocean</button></div>
+            </div>
+            <div class="answer"id="answer8" >Answer :2)Pacific Ocean</div>
+        </div>
+        <div id="box_9" class="box">
+            <div class="ques_9"><h2>Q.9)Where is Brazil located?</h2></div>
+            <div class="ans_9">
+                <div class="option1"><button id="btn33" onclick="correct33(),marks()">1)South America</button></div> 
+                <div class="option2"><button id="btn34" onclick="wrong34()">2)Asia</button></div>
+                <div class="option3"><button id="btn35" onclick="wrong35()">3)Europe</button></div>
+                <div class="option4"><button id="btn36" onclick="wrong36()">4)Mars</button></div>
+            </div>
+            <div class="answer" id="answer9"> Answer :1)South America</div>
+            </div>
+
+        <div id="box_10" class="box">
+            <div class="ques_10"><h2>Q.10)Which country have the highest population?</h2></div>
+            <div class="ans_10">
+                <div class="option1"><button id="btn37" onclick="wrong37()">1)India</button></div>
+                <div class="option2"><button id="btn38" onclick="wrong38()">2)USA</button></div>
+                <div class="option3"><button id="btn39" onclick="correct39(),marks()">3)China</button></div>
+                <div class="option4"     onclick="wrong40()"><button id="btn40"  >4)Canada</button></div>
+            </div>
+            <div class="answer" id="answer10">Answer : 3)China</div>
+        </div>
+        <div id="submit">
+             <button type="submit" id="submit_button" onclick="document.getElementById('span')=total">SUBMIT</button>
+        </div>
+        <div class="marks">
+            <h2>Yayyy , Your Marks is <span id="span"><span id="hidden"></span></span></h2>
+        </div>
+        </div>
+
+    
+    <script>
+
+
+// answer1
+        function wrong1() {
+            let btn1 = document.getElementById('btn1');
+            let answer1= document.getElementById('answer1');
+            if (answer1.style.display!='block') {
+                answer1.style.display='block'
+                
+   
+            }
+            else{
+                answer1.style.display='block'
+            }
+            if (btn1.style.backgroundColor!="red") {
+                btn1.style.backgroundColor="red"
+
+                
+            } else {btn1.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function correct2() {
+            
+            let btn2 = document.getElementById('btn2');
+            let answer1= document.getElementById('answer1');
+           
+            
+            
+            
+            if (answer1.style.display!='block') {
+                answer1.style.display='block'
+                
+                
+
+                
+            }
+            else{
+                answer1.style.display='block'
+            }
+            if (btn2.style.backgroundColor!="springgreen") {
+                btn2.style.backgroundColor="springgreen"
+
+                
+            }
+             else {
+                btn2.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+        function wrong3() {
+            let btn3 = document.getElementById('btn3');
+            let answer1= document.getElementById('answer1');
+            if (answer1.style.display!='block') {
+                answer1.style.display='block'
+                
+   
+            }
+            else{
+                answer1.style.display='block'
+            }
+            if (btn3.style.backgroundColor!="red") {
+                btn3.style.backgroundColor="red"
+
+                
+            } else {btn3.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function wrong4() {
+            let btn4 = document.getElementById('btn4');
+            let answer1= document.getElementById('answer1');
+            if (answer1.style.display!='block') {
+                answer1.style.display='block'
+                
+   
+            }
+            else{
+                answer1.style.display='block'
+            }
+            if (btn4.style.backgroundColor!="red") {
+                btn4.style.backgroundColor="red"
+
+                
+            } else {
+                btn4.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        
+        function wrong4() {
+            let btn4 = document.getElementById('btn4');
+            let answer1= document.getElementById('answer1');
+            if (answer1.style.display!='block') {
+                answer1.style.display='block'
+                
+   
+            }
+            else{
+                answer1.style.display='block'
+            }
+            if (btn4.style.backgroundColor!="red") {
+                btn4.style.backgroundColor="red"
+
+                
+            } else {
+                btn4.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        // answer2
+        function wrong5() {
+            let btn5 = document.getElementById('btn5');
+            let answer2= document.getElementById('answer2');
+            if (answer2.style.display!='block') {
+                answer2.style.display='block'
+                
+   
+            }
+            else{
+                answer2.style.display='block'
+            }
+            if (btn5.style.backgroundColor!="red") {
+                btn5.style.backgroundColor="red"
+
+                
+            } else {
+                btn5.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function wrong6() {
+            let btn6 = document.getElementById('btn6');
+            let answer2= document.getElementById('answer2');
+            if (answer2.style.display!='block') {
+                answer2.style.display='block'
+                
+   
+            }
+            else{
+                answer2.style.display='block'
+            }
+            if (btn6.style.backgroundColor!="red") {
+                btn6.style.backgroundColor="red"
+
+                
+            } else {
+                btn6.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function correct7() {
+            
+            let btn7 = document.getElementById('btn7');
+            let answer2= document.getElementById('answer2');
+
+           
+
+            if (answer2.style.display!='block') {
+                answer2.style.display='block'
+                
+   
+            }
+            else{
+                answer2.style.display='block'
+            }
+            if (btn7.style.backgroundColor!="springgreen") {
+                btn7.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn7.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+        function wrong8() {
+            let btn8 = document.getElementById('btn8');
+            let answer2= document.getElementById('answer2');
+            if (answer2.style.display!='block') {
+                answer2.style.display='block'
+                
+   
+            }
+            else{
+                answer2.style.display='block'
+            }
+            if (btn8.style.backgroundColor!="red") {
+                btn8.style.backgroundColor="red"
+
+                
+            } else {
+                btn8.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        // answer3
+        function wrong9() {
+            let btn9 = document.getElementById('btn9');
+            let answer3= document.getElementById('answer3');
+            if (answer3.style.display!='block') {
+                answer3.style.display='block'
+                
+   
+            }
+            else{
+                answer3.style.display='block'
+            }
+            if (btn9.style.backgroundColor!="red") {
+                btn9.style.backgroundColor="red"
+
+                
+            } else {
+                btn9.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function correct10() {
+            let add3=1;
+            let btn10 = document.getElementById('btn10');
+            let answer3= document.getElementById('answer3');
+            if (answer3.style.display!='block') {
+                answer3.style.display='block'
+                
+   
+            }
+            else{
+                answer3.style.display='block'
+            }
+            if (btn10.style.backgroundColor!="springgreen") {
+                btn10.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn10.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+        function wrong11() {
+            let btn11 = document.getElementById('btn11');
+            let answer3= document.getElementById('answer3');
+            if (answer3.style.display!='block') {
+                answer3.style.display='block'
+                
+   
+            }
+            else{
+                answer3.style.display='block'
+            }
+            if (btn11.style.backgroundColor!="red") {
+                btn11.style.backgroundColor="red"
+
+                
+            } else {
+                btn11.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function wrong12() {
+            let btn12 = document.getElementById('btn12');
+            let answer3= document.getElementById('answer3');
+            if (answer3.style.display!='block') {
+                answer3.style.display='block'
+                
+   
+            }
+            else{
+                answer3.style.display='block'
+            }
+            if (btn12.style.backgroundColor!="red") {
+                btn12.style.backgroundColor="red"
+
+                
+            } else {
+                btn12.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+// answer4
+        function wrong13() {
+            let btn13 = document.getElementById('btn13');
+            let answer4= document.getElementById('answer4');
+            if (answer4.style.display!='block') {
+                answer4.style.display='block'
+                
+   
+            }
+            else{
+                answer4.style.display='block'
+            }
+            if (btn13.style.backgroundColor!="red") {
+                btn13.style.backgroundColor="red"
+
+                
+            } else {
+                btn13.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function wrong14() {
+            let btn14 = document.getElementById('btn14');
+            let answer4= document.getElementById('answer4');
+            if (answer4.style.display!='block') {
+                answer4.style.display='block'
+                
+   
+            }
+            else{
+                answer4.style.display='block'
+            }
+            if (btn14.style.backgroundColor!="red") {
+                btn14.style.backgroundColor="red"
+
+                
+            } else {
+                btn14.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function correct15() {
+            let add4=1;
+            let btn15 = document.getElementById('btn15');
+            let answer4= document.getElementById('answer4');
+            if (answer4.style.display!='block') {
+                answer4.style.display='block'
+                
+   
+            }
+            else{
+                answer4.style.display='block'
+            }
+            if (btn15.style.backgroundColor!="springgreen") {
+                btn15.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn15.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+
+        function wrong16() {
+            let btn16 = document.getElementById('btn16');
+            let answer4= document.getElementById('answer4');
+            if (answer4.style.display!='block') {
+                answer4.style.display='block'
+                
+   
+            }
+            else{
+                answer4.style.display='block'
+            }
+            if (btn16.style.backgroundColor!="red") {
+                btn16.style.backgroundColor="red"
+
+                
+            } else {
+                btn16.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        // answer5
+
+        function wrong17() {
+            let btn17 = document.getElementById('btn17');
+            let answer5= document.getElementById('answer5');
+            if (answer5.style.display!='block') {
+                answer5.style.display='block'
+                
+   
+            }
+            else{
+                answer5.style.display='block'
+            }
+            if (btn17.style.backgroundColor!="red") {
+                btn17.style.backgroundColor="red"
+
+                
+            } else {
+                btn17.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function correct18() {
+            let add5=1;
+            let btn18 = document.getElementById('btn18');
+            let answer5= document.getElementById('answer5');
+            if (answer5.style.display!='block') {
+                answer5.style.display='block'
+                
+   
+            }
+            else{
+                answer5.style.display='block'
+            }
+            if (btn18.style.backgroundColor!="springgreen") {
+                btn18.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn18.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+        function wrong19() {
+            let btn19 = document.getElementById('btn19');
+            let answer5= document.getElementById('answer5');
+            if (answer5.style.display!='block') {
+                answer5.style.display='block'
+                
+   
+            }
+            else{
+                answer5.style.display='block'
+            }
+            if (btn19.style.backgroundColor!="red") {
+                btn19.style.backgroundColor="red"
+
+                
+            } else {
+                btn19.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function wrong20() {
+            let btn20 = document.getElementById('btn20');
+            let answer5= document.getElementById('answer5');
+            if (answer5.style.display!='block') {
+                answer5.style.display='block'
+                
+   
+            }
+            else{
+                answer5.style.display='block'
+            }
+            if (btn20.style.backgroundColor!="red") {
+                btn20.style.backgroundColor="red"
+
+                
+            } else {
+                btn20.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        // answer6
+
+        function wrong21() {
+            let btn21 = document.getElementById('btn21');
+            let answer6= document.getElementById('answer6');
+            if (answer6.style.display!='block') {
+                answer6.style.display='block'
+                
+   
+            }
+            else{
+                answer6.style.display='block'
+            }
+            if (btn21.style.backgroundColor!="red") {
+                btn21.style.backgroundColor="red"
+
+                
+            } else {
+                btn21.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function correct22() {
+            let add6=1;
+            let btn22 = document.getElementById('btn22');
+            let answer6= document.getElementById('answer6');
+            if (answer6.style.display!='block') {
+                answer6.style.display='block'
+                
+   
+            }
+            else{
+                answer6.style.display='block'
+            }
+            if (btn22.style.backgroundColor!="springgreen") {
+                btn22.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn22.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+         function wrong23() {
+            let btn23 = document.getElementById('btn23');
+            let answer6= document.getElementById('answer6');
+            if (answer6.style.display!='block') {
+                answer6.style.display='block'
+                
+   
+            }
+            else{
+                answer6.style.display='block'
+            }
+            if (btn23.style.backgroundColor!="red") {
+                btn23.style.backgroundColor="red"
+
+                
+            } else {
+                btn23.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+ function wrong24() {
+            let btn24 = document.getElementById('btn24');
+            let answer6= document.getElementById('answer6');
+            if (answer6.style.display!='block') {
+                answer6.style.display='block'
+                
+   
+            }
+            else{
+                answer6.style.display='block'
+            }
+            if (btn24.style.backgroundColor!="red") {
+                btn24.style.backgroundColor="red"
+
+                
+            } else {
+                btn24.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        // answer7
+ function correct25() {
+            let add7=1;
+            let btn25 = document.getElementById('btn25');
+            let answer7= document.getElementById('answer7');
+            if (answer7.style.display!='block') {
+                answer7.style.display='block'
+                
+   
+            }
+            else{
+                answer7.style.display='block'
+            }
+            if (btn25.style.backgroundColor!="springgreen") {
+                btn25.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn25.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+
+ function wrong26() {
+            let btn26 = document.getElementById('btn26');
+            let answer7= document.getElementById('answer7');
+            if (answer7.style.display!='block') {
+                answer7.style.display='block'
+                
+   
+            }
+            else{
+                answer7.style.display='block'
+            }
+            if (btn26.style.backgroundColor!="red") {
+                btn26.style.backgroundColor="red"
+
+                
+            } else {
+                btn26.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+ function wrong27() {
+            let btn27 = document.getElementById('btn27');
+            let answer7= document.getElementById('answer7');
+            if (answer7.style.display!='block') {
+                answer7.style.display='block'
+                
+   
+            }
+            else{
+                answer7.style.display='block'
+            }
+            if (btn27.style.backgroundColor!="red") {
+                btn27.style.backgroundColor="red"
+
+                
+            } else {
+                btn27.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+ function wrong28() {
+            let btn28 = document.getElementById('btn28');
+            let answer7= document.getElementById('answer7');
+            if (answer7.style.display!='block') {
+                answer7.style.display='block'
+                
+   
+            }
+            else{
+                answer7.style.display='block'
+            }
+            if (btn28.style.backgroundColor!="red") {
+                btn28.style.backgroundColor="red"
+
+                
+            } else {
+                btn28.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        // answer8
+
+        function wrong29() {
+            let btn29 = document.getElementById('btn29');
+            let answer8= document.getElementById('answer8');
+            if (answer8.style.display!='block') {
+                answer8.style.display='block'
+                
+   
+            }
+            else{
+                answer8.style.display='block'
+            }
+            if (btn29.style.backgroundColor!="red") {
+                btn29.style.backgroundColor="red"
+
+                
+            } else {
+                btn29.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function correct30() {
+            let add8=1;
+            let btn30 = document.getElementById('btn30');
+            let answer8= document.getElementById('answer8');
+            if (answer8.style.display!='block') {
+                answer8.style.display='block'
+                
+   
+            }
+            else{
+                answer8.style.display='block'
+            }
+            if (btn30.style.backgroundColor!="springgreen") {
+                btn30.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn30.style.backgroundColor="springgreen"
+                
+            }
+        
+           
+            
+        }
+        function wrong31() {
+            let btn31 = document.getElementById('btn31');
+            let answer8= document.getElementById('answer8');
+            if (answer8.style.display!='block') {
+                answer8.style.display='block'
+                
+   
+            }
+            else{
+                answer8.style.display='block'
+            }
+            if (btn31.style.backgroundColor!="red") {
+                btn31.style.backgroundColor="red"
+
+                
+            } else {
+                btn31.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        function wrong32() {
+            let btn32 = document.getElementById('btn32');
+            let answer8= document.getElementById('answer8');
+            if (answer8.style.display!='block') {
+                answer8.style.display='block'
+                
+   
+            }
+            else{
+                answer8.style.display='block'
+            }
+            if (btn32.style.backgroundColor!="red") {
+                btn32.style.backgroundColor="red"
+
+                
+            } else {
+                btn32.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        // answer9
+
+        function correct33() {
+            let add9=1;
+            let btn33 = document.getElementById('btn33');
+            let answer9= document.getElementById('answer9');
+            if (answer9.style.display!='block') {
+                answer9.style.display='block'
+                
+   
+            }
+            else{
+                answer9.style.display='block'
+            }
+            if (btn33.style.backgroundColor!="springgreen") {
+                btn33.style.backgroundColor="springgreen"
+
+                
+            } else {
+                btn33.style.backgroundColor="springgreen"
+                
+            }
+        
+            
+        }
+
+        function wrong34() {
+            let btn34 = document.getElementById('btn34');
+            let answer9= document.getElementById('answer9');
+            if (answer9.style.display!='block') {
+                answer9.style.display='block'
+                
+   
+            }
+            else{
+                answer9.style.display='block'
+            }
+            if (btn34.style.backgroundColor!="red") {
+                btn34.style.backgroundColor= "red"
+
+                
+            } else {
+                btn34.style.backgroundColor= "red"
+                
+            }
+        
+            
+        }
+        
+
+        function wrong35() {
+            let btn35 = document.getElementById('btn35');
+            let answer9= document.getElementById('answer9');
+            if (answer9.style.display!='block') {
+                answer9.style.display='block'
+                
+   
+            }
+            else{
+                answer9.style.display='block'
+            }
+            if (btn35.style.backgroundColor!="red") {
+                btn35.style.backgroundColor= "red"
+
+                
+            } else {
+                btn35.style.backgroundColor= "red"
+                
+            }
+        
+            
+        }
+        
+
+function wrong36() {
+            let btn36 = document.getElementById('btn36');
+            let answer9= document.getElementById('answer9');
+            if (answer9.style.display!='block') {
+                answer9.style.display='block'
+                
+   
+            }
+            else{
+                answer9.style.display='block'
+            }
+            if (btn36.style.backgroundColor!="red") {
+                btn36.style.backgroundColor="red"
+
+                
+            } else {
+                btn36.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+        // answer10
+        function wrong37() {
+            let btn37 = document.getElementById('btn37');
+            let answer10= document.getElementById('answer10');
+            if (answer10.style.display!='block') {
+                answer10.style.display='block'
+                
+   
+            }
+            else{
+                answer10.style.display='block'
+            }
+            if (btn37.style.backgroundColor!="red") {
+                btn37.style.backgroundColor="red"
+
+                
+            } else {
+                btn37.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function wrong38() {
+            let btn38 = document.getElementById('btn38');
+            let answer10= document.getElementById('answer10');
+            if (answer10.style.display!='block') {
+                answer10.style.display='block'
+                
+   
+            }
+            else{
+                answer10.style.display='block'
+            }
+            if (btn38.style.backgroundColor!="red") {
+                btn38.style.backgroundColor= "red"
+
+                
+            } else {
+                btn38.style.backgroundColor= "red"
+                
+            }
+        
+            
+        }
+        function correct39() {
+            let add10=1;
+            
+            let btn39 = document.getElementById('btn39');
+            let answer10= document.getElementById('answer10');
+            
+           
+            if (answer10.style.display!='block') {
+                answer10.style.display='block'
+                
+            }
+            else{
+                answer10.style.display='block'
+            }
+            if (btn39.style.backgroundColor!="springgreen") {
+                btn39.style.backgroundColor= "springgreen"
+
+                
+            } else {
+                btn39.style.backgroundColor= "springgreen"
+                
+            }
+        
+            
+        }
+         
+        function wrong40() {
+            let btn40 = document.getElementById('btn40');
+            let answer10= document.getElementById('answer10');
+            
+
+            if (answer10.style.display!='block') {
+                answer10.style.display='block'
+                
+   
+            }
+            else{
+                answer10.style.display='block'
+            }
+            if (btn40.style.backgroundColor!="red") {
+                btn40.style.backgroundColor="red"
+
+                
+            } else {
+                btn40.style.backgroundColor="red"
+                
+            }
+        
+            
+        }
+
+        function submit() {
+            document.getElementById('hidden').innerHTML = value1+value2
+
+            
+        }
+        
+       
+ </script>
+</body>
+</html>
